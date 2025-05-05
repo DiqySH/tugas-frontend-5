@@ -3,61 +3,71 @@ const orangOrang = [
     nama: "Andi Wijaya",
     alamat: "Jl. Merdeka No. 10, Jakarta",
     nomorHp: "081234567890",
-    photoProfile: "https://randomuser.me/api/portraits/men/32.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/men/32.jpg",
+    bestie: true,
   },
   {
     nama: "Siti Rahma",
     alamat: "Jl. Kenanga No. 5, Bandung",
     nomorHp: "082345678901",
-    photoProfile: "https://randomuser.me/api/portraits/women/45.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/women/45.jpg",
+    bestie: false,
   },
   {
     nama: "Budi Santoso",
     alamat: "Jl. Ahmad Yani No. 25, Surabaya",
     nomorHp: "083456789012",
-    photoProfile: "https://randomuser.me/api/portraits/men/54.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/men/54.jpg",
+    bestie: false,
   },
   {
     nama: "Dewi Lestari",
     alamat: "Jl. Mawar No. 7, Yogyakarta",
     nomorHp: "084567890123",
-    photoProfile: "https://randomuser.me/api/portraits/women/12.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/women/12.jpg",
+    bestie: true,
   },
   {
     nama: "Rizky Pratama",
     alamat: "Jl. Melati No. 8, Medan",
     nomorHp: "085678901234",
-    photoProfile: "https://randomuser.me/api/portraits/men/23.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/men/23.jpg",
+    bestie: false,
   },
   {
     nama: "Intan Permata",
     alamat: "Jl. Anggrek No. 9, Makassar",
     nomorHp: "086789012345",
-    photoProfile: "https://randomuser.me/api/portraits/women/34.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/women/34.jpg",
+    bestie: true,
   },
   {
     nama: "Fajar Nugroho",
     alamat: "Jl. Cemara No. 3, Bekasi",
     nomorHp: "087890123456",
-    photoProfile: "https://randomuser.me/api/portraits/men/41.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/men/41.jpg",
+    bestie: false,
   },
   {
     nama: "Nur Aisyah",
     alamat: "Jl. Teratai No. 2, Semarang",
     nomorHp: "088901234567",
-    photoProfile: "https://randomuser.me/api/portraits/women/56.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/women/56.jpg",
+    bestie: false,
   },
   {
     nama: "Taufik Hidayat",
     alamat: "Jl. Dahlia No. 4, Palembang",
     nomorHp: "089012345678",
-    photoProfile: "https://randomuser.me/api/portraits/men/67.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/men/67.jpg",
+    bestie: true,
   },
   {
     nama: "Lina Marlina",
     alamat: "Jl. Flamboyan No. 6, Balikpapan",
     nomorHp: "081012345678",
-    photoProfile: "https://randomuser.me/api/portraits/women/78.jpg"
+    photoProfile: "https://randomuser.me/api/portraits/women/78.jpg",
+    bestie: false,
   }
 ];
 
@@ -70,12 +80,15 @@ function Judul() {
   );
 }
 
-function CardsList({photoProfile, nama, alamat, nomorHp}) {
+function CardsList({photoProfile, nama, alamat, nomorHp, bestie}) {
   return (
     <div className="max-w-[600px] p-5 flex flex-col gap-4 border-[#EFEFEF] border-2 bg-white shadow-xl rounded-xl">
       <div className="flex items-center gap-4">
         <img src={photoProfile} alt="" className="rounded-[50%] max-w-16"/>
         <p>{nama}</p>
+        {
+          bestie ? <p className="bg-green-400 p-2 text-white rounded-full">Best Friend</p> : ""
+        }
       </div>
       <hr className="w-full text-[#EFEFEF]"/>
       <div className="flex w-full">
@@ -93,7 +106,7 @@ export default function App() {
       <div className="max-w-[600px] w-full flex flex-col gap-4 mt-4 pb-4">
         {
           orangOrang.map((orang) => (
-            <CardsList nama={orang.nama} photoProfile={orang.photoProfile} alamat={orang.alamat} nomorHp={orang.nomorHp}/>
+            <CardsList nama={orang.nama} photoProfile={orang.photoProfile} alamat={orang.alamat} nomorHp={orang.nomorHp} bestie={orang.bestie}/>
           ))
         }
       </div>
